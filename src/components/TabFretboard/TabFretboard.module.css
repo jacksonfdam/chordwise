@@ -1,0 +1,53 @@
+.scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  min-width: 520px;
+  font-family: var(--mono);
+}
+
+.board {
+  fill: var(--body);
+  stroke: var(--line);
+}
+
+.fret {
+  stroke: var(--detail);
+  stroke-width: 1.5;
+}
+
+.nut {
+  stroke: var(--ink-hi);
+  stroke-width: 4;
+}
+
+.string {
+  stroke: var(--line);
+}
+
+.inlay {
+  fill: var(--detail);
+}
+
+.fretNumber,
+.stringName {
+  fill: var(--ink);
+  font-size: 9px;
+}
+
+/* The sounding notes are the one live thing on the neck. */
+.note circle {
+  fill: var(--accent);
+  stroke: var(--accent-hi);
+  filter: var(--glow-filter);
+}
+
+.note text {
+  fill: var(--on-accent);
+  font-size: 9px;
+  font-weight: 500;
+}
