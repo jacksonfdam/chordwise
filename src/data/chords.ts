@@ -697,6 +697,28 @@ export const CHORDS: readonly Chord[] = [
     relatedChordIds: ["A", "F-barre", "Bm", "Cm"],
   },
   {
+    id: "B",
+    name: "B",
+    fullName: "B major",
+    level: "intermediate",
+    ...buildBarreShape("a-major", 2),
+    sound: "Bright and urgent, the chord that leads back home to E.",
+    tips: [
+      "It is an A major shape with a barre at fret 2. The low E string is not played.",
+      "The root note is on the A string, fret 2: B.",
+      "Many players flatten finger 3 across the D, G and B strings instead of using three fingers. Try both.",
+    ],
+    commonMistakes: [
+      {
+        problem: "The high E string is silent.",
+        fix: "That is common at first and still sounds fine. To fix it, arch finger 4 and press the barre evenly to its tip.",
+      },
+      BARRE_BUZZ,
+      WRONG_STRINGS_STRUMMED,
+    ],
+    relatedChordIds: ["Bb", "Bm", "E", "A"],
+  },
+  {
     id: "Cm",
     name: "Cm",
     fullName: "C minor",
