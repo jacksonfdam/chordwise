@@ -3,7 +3,7 @@
  * - Page navigations: network first, falling back to the cached shell.
  * - Hashed build assets (/assets/*): cache first; they never change.
  */
-const CACHE = "chordwise-shell-v1";
+const CACHE = "chordwise-shell-v2";
 const SHELL = ["/", "/manifest.webmanifest", "/favicon.svg"];
 
 self.addEventListener("install", (event) => {
@@ -45,7 +45,12 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (url.pathname.startsWith("/assets/") || url.pathname.startsWith("/icons/")) {
+  if (
+    url.pathname.startsWith("/assets/") ||
+    url.pathname.startsWith("/icons/") ||
+    url.pathname.startsWith("/hands/") ||
+    url.pathname.startsWith("/alphatab/")
+  ) {
     event.respondWith(
       caches.match(request).then(
         (cached) =>
