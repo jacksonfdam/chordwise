@@ -1,4 +1,5 @@
 import { fireEvent, render, screen, within } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
 import SongSheet from "../pages/SongSheet";
 
@@ -21,13 +22,21 @@ const chipNames = () =>
 
 describe("SongSheet page", () => {
   it("starts with an empty editor and no song", () => {
-    render(<SongSheet />);
+    render(
+      <MemoryRouter>
+        <SongSheet />
+      </MemoryRouter>,
+    );
     expect(screen.getByRole("button", { name: "Show how to play" })).toBeDisabled();
     expect(screen.queryByRole("complementary")).not.toBeInTheDocument();
   });
 
   it("shows a diagram for every chord in a pasted sheet", () => {
-    render(<SongSheet />);
+    render(
+      <MemoryRouter>
+        <SongSheet />
+      </MemoryRouter>,
+    );
     paste(SHEET);
     expect(chipNames()).toEqual([
       "Show G, G major",
@@ -41,7 +50,11 @@ describe("SongSheet page", () => {
   });
 
   it("selects a chord when it is tapped in the song", () => {
-    render(<SongSheet />);
+    render(
+      <MemoryRouter>
+        <SongSheet />
+      </MemoryRouter>,
+    );
     paste(SHEET);
     const inSong = screen.getByRole("button", { name: "Em" });
     fireEvent.click(inSong);
@@ -53,7 +66,11 @@ describe("SongSheet page", () => {
   });
 
   it("transposes the song and its diagrams", () => {
-    render(<SongSheet />);
+    render(
+      <MemoryRouter>
+        <SongSheet />
+      </MemoryRouter>,
+    );
     paste(SHEET);
     fireEvent.click(screen.getByRole("button", { name: "Transpose up one semitone" }));
     expect(chipNames()).toEqual([
@@ -67,10 +84,18 @@ describe("SongSheet page", () => {
   });
 
   it("remembers the sheet and can clear it", () => {
-    const first = render(<SongSheet />);
+    const first = render(
+      <MemoryRouter>
+        <SongSheet />
+      </MemoryRouter>,
+    );
     paste(SHEET);
     first.unmount();
-    render(<SongSheet />);
+    render(
+      <MemoryRouter>
+        <SongSheet />
+      </MemoryRouter>,
+    );
     expect(chipNames()).toHaveLength(4);
     fireEvent.click(screen.getByRole("button", { name: "Edit" }));
     fireEvent.click(screen.getByRole("button", { name: "Clear" }));
@@ -78,7 +103,11 @@ describe("SongSheet page", () => {
   });
 
   it("explains when no chords are found", () => {
-    render(<SongSheet />);
+    render(
+      <MemoryRouter>
+        <SongSheet />
+      </MemoryRouter>,
+    );
     paste("Just some words\nand nothing else");
     expect(screen.getByRole("status")).toHaveTextContent("No chord names were found");
   });
