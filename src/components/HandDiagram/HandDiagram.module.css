@@ -1,0 +1,30 @@
+.figure {
+  display: grid;
+  gap: var(--s2);
+  margin: 0;
+  flex: none;
+}
+
+.md {
+  width: min(260px, 100%);
+}
+
+.lg {
+  width: min(340px, 100%);
+}
+
+.picture {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-md);
+  /* Same tone as the picture's own background, so it never flashes while loading. */
+  background: var(--art-bg);
+}
+
+.caption {
+  color: var(--ink);
+  font-size: var(--text-xs);
+  text-align: center;
+}
