@@ -23,6 +23,10 @@ no tracking; your progress is stored on your own device.
 - **Strumming patterns** shown as an arrow grid with a playhead that follows the click.
 - **Chord-change drills** with a count-in, a "change now" cue and tempo that rises after each
   round you judge to be clean.
+- **Song sheets**: paste a chord sheet (chord names above the lyrics) and get a diagram for
+  every chord in it. Tap a chord in the song to see and hear it, transpose, switch to flats,
+  change the text size and autoscroll while you play. Shapes written in the sheet itself
+  (`G 3-x-0-0-3-3`) are used as given.
 - **Glossary** of every guitar term used in the lessons.
 - **Accessible and mobile-first**: keyboard shortcuts, visible focus, screen-reader
   announcements, reduced-motion support and large tap targets from 360 px wide.
@@ -81,6 +85,8 @@ src/
   domain/
     types.ts             Chord, Lesson, Step, StrumPattern and related types
     fretboard.ts         String and fret to frequency and note-name math
+    chordSymbols.ts      Chord symbol parsing, transposing and shape lookup
+    chordSheet.ts        Parser for pasted chord sheets
     validate.ts          Validators for chord, pattern and lesson data
   audio/
     audioEngine.ts       AudioContext lifecycle, plucked strings, strums, clicks
@@ -89,7 +95,8 @@ src/
   components/            ChordDiagram, StepPlayer, Timer, Metronome, StrumPattern,
                          ChordChangeDrill, LessonCard, ProgressBar, GuitarParts,
                          Fretboard, Layout, Settings, Icon
-  pages/                 Home, LessonList, LessonPlayer, ChordLibrary, Tools, Glossary, NotFound
+  pages/                 Home, LessonList, LessonPlayer, ChordLibrary, SongSheet, Tools,
+                         Glossary, NotFound
   styles/                tokens.css (design tokens), global.css, ui.module.css
   tests/                 Vitest suites
 design/                  SVG sources for the icons and the social preview image
