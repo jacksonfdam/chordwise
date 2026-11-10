@@ -1,0 +1,424 @@
+.player {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
+  max-width: var(--page);
+  margin-inline: auto;
+}
+
+/* ---------- top bar ---------- */
+.topBar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s2) var(--s3);
+  padding: var(--s3) var(--s4);
+  border-bottom: 1px solid var(--edge);
+  background: var(--bg);
+}
+
+.titles {
+  min-width: 0;
+}
+
+.lessonTitle {
+  overflow: hidden;
+  font-size: var(--text-md);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.progress {
+  grid-column: 1 / -1;
+}
+
+/* ---------- main ---------- */
+.main {
+  display: grid;
+  align-content: start;
+  gap: var(--s4);
+  min-width: 0;
+  padding: var(--s4);
+}
+
+.main:focus {
+  outline: none;
+}
+
+.stage {
+  display: grid;
+  align-content: start;
+  gap: var(--s3);
+  min-width: 0;
+  padding: var(--s4);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  box-shadow: var(--slab);
+  margin-bottom: var(--slab-depth);
+  animation: stepIn 260ms var(--ease) both;
+}
+
+@keyframes stepIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.stepTitle {
+  font-size: var(--text-xl);
+}
+
+.body {
+  max-width: 62ch;
+  color: var(--ink-hi);
+}
+
+.stageBody {
+  display: grid;
+  justify-items: stretch;
+  gap: var(--s4);
+  min-width: 0;
+  padding-top: var(--s2);
+}
+
+.diagram {
+  display: grid;
+  justify-items: center;
+  gap: var(--s2);
+  padding: var(--s4);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-md);
+  background: var(--haze), var(--recess);
+}
+
+.chordName {
+  color: var(--ink-hi);
+  font-size: var(--text-xl);
+  line-height: 1.1;
+}
+
+.chordFull {
+  color: var(--ink);
+  font-size: var(--text-xs);
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+}
+
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s3);
+}
+
+.anatomy {
+  display: grid;
+  gap: var(--s2);
+  margin: 0;
+}
+
+.anatomy div {
+  display: grid;
+  gap: 2px;
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-sm);
+}
+
+.anatomy dt {
+  color: var(--ink-hi);
+  font-size: var(--text-sm);
+}
+
+.anatomy dd {
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.mistakes {
+  display: grid;
+  gap: var(--s3);
+}
+
+.mistake {
+  display: grid;
+  gap: var(--s1);
+  padding: var(--s3) var(--s4);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-md);
+  background: var(--recess);
+  font-size: var(--text-sm);
+}
+
+.problem {
+  margin-bottom: var(--s2);
+  color: var(--ink-hi);
+}
+
+/* ---------- hold cycle ---------- */
+.hold {
+  display: grid;
+  justify-items: center;
+  gap: var(--s1);
+  padding: var(--s4);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-md);
+  background: var(--recess);
+  text-align: center;
+}
+
+.holdLive {
+  border-color: var(--accent);
+  background: var(--glass-on);
+  box-shadow: var(--glow-soft);
+}
+
+.holdPhase {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s3);
+  color: var(--ink-hi);
+  font-size: var(--text-2xl);
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+}
+
+.holdLive .holdPhase {
+  color: var(--accent-ink);
+  text-shadow: var(--glow-text);
+}
+
+.holdSeconds {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- rhythm ---------- */
+.rhythm {
+  display: grid;
+  gap: var(--s3);
+}
+
+.rhythmHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s2);
+}
+
+/* ---------- quiz ---------- */
+.quiz {
+  display: grid;
+  gap: var(--s3);
+}
+
+.question {
+  color: var(--ink-hi);
+  font-size: var(--text-lg);
+}
+
+.options {
+  display: grid;
+  gap: var(--s2);
+}
+
+.option {
+  justify-content: flex-start;
+  width: 100%;
+  padding-block: var(--s2);
+  text-align: left;
+  text-transform: none;
+  letter-spacing: var(--track-tight);
+}
+
+.optionMark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+
+.feedback {
+  min-height: 3.2em;
+  font-size: var(--text-sm);
+}
+
+.wrong {
+  color: var(--ink-hi);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+}
+
+/* ---------- checklist and summary ---------- */
+.checklist {
+  display: grid;
+  gap: var(--s1);
+  margin-top: var(--s2);
+}
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s3);
+  min-height: var(--tap);
+  padding: var(--s2) 0;
+  color: var(--ink-hi);
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+
+.check input {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.summary {
+  display: grid;
+  gap: var(--s5);
+}
+
+.summary section {
+  display: grid;
+  gap: var(--s2);
+}
+
+.goals {
+  display: grid;
+  gap: var(--s2);
+}
+
+.goals li {
+  display: flex;
+  gap: var(--s3);
+  color: var(--ink-hi);
+  font-size: var(--text-sm);
+}
+
+.goals svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--accent-ink);
+}
+
+/* ---------- side panel ---------- */
+.panel {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+  padding: var(--s3) var(--s4);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+}
+
+.panelText {
+  display: grid;
+  gap: var(--s3);
+  min-width: 0;
+  font-size: var(--text-sm);
+}
+
+.ready {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  width: 112px;
+  aspect-ratio: 1;
+  flex: none;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: var(--glass-on);
+  box-shadow: var(--glow-soft);
+  text-align: center;
+}
+
+.ready p:last-child {
+  display: none;
+}
+
+.readyNumber {
+  color: var(--accent-ink);
+  font-size: var(--text-2xl);
+  line-height: 1;
+  text-shadow: var(--glow-text);
+}
+
+/* ---------- controls: fixed within thumb reach ---------- */
+.controls {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  display: grid;
+  gap: var(--s2);
+  padding: var(--s3) var(--s4) calc(var(--s3) + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--edge);
+  background: var(--panel);
+}
+
+.primaryControls,
+.secondaryControls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s2);
+}
+
+.primaryControls button {
+  min-height: 52px;
+  padding-inline: var(--s2);
+}
+
+.secondaryControls button {
+  padding-inline: var(--s2);
+  font-size: var(--text-xs);
+}
+
+.secondaryControls button[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  background: var(--accent-dim);
+}
+
+@media (min-width: 900px) {
+  .main {
+    grid-template-columns: minmax(0, 1fr) 300px;
+    align-items: start;
+    padding: var(--s5);
+  }
+
+  .stage {
+    padding: var(--s5);
+  }
+
+  .panel {
+    position: sticky;
+    top: 110px;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--s5);
+    text-align: center;
+  }
+
+  .panelText {
+    justify-items: center;
+  }
+
+  .controls {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    padding-inline: var(--s5);
+  }
+}
