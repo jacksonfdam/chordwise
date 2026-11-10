@@ -37,6 +37,7 @@
   --glow-soft: 0 0 8px rgba(255, 154, 46, 0.35);
   --glow-text: 0 0 8px rgba(255, 154, 46, 0.7);
   --glow-filter: drop-shadow(0 0 5px rgba(255, 154, 46, 0.8));
+  --scrim: rgba(0, 0, 0, 0.6);
   --haze: radial-gradient(ellipse 50% 45% at 50% 52%, var(--accent-dim), transparent 72%);
 
   /* isometric depth: a plate with a visible lower edge */
@@ -93,6 +94,7 @@
     --ink-hi: #16181a;
     --live: #0c0d0e;
     --accent-ink: #8f4400;
+    --scrim: rgba(20, 22, 24, 0.45);
     --glow: none;
     --glow-soft: none;
     --glow-text: none;
