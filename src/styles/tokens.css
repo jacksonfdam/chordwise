@@ -25,6 +25,9 @@
   --ink-hi: #e6e8e9;
   --live: #f4f5f5;
 
+  /* background of the hand illustrations (matches the pictures themselves) */
+  --art-bg: #1e1e1e;
+
   /* accent: only on live things */
   --accent: #ff9a2e;
   --accent-hi: #ffc77a;
