@@ -1,6 +1,7 @@
 /* Layout pieces shared by the pages. */
 .page {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--s6);
 }
 
