@@ -1,0 +1,44 @@
+.dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
+}
+
+.dot {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--glass);
+  color: var(--ink);
+  font-size: var(--text-xs);
+}
+
+/* Beat 1 is larger and double-ringed: the accent is visible without color. */
+.downbeat {
+  width: 42px;
+  height: 42px;
+  border-width: 2px;
+  color: var(--ink-hi);
+}
+
+.active {
+  border-color: var(--accent-hi);
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: var(--glow);
+  animation: pulse 180ms var(--ease);
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1.18);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}

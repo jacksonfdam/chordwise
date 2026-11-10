@@ -1,0 +1,66 @@
+.metronome {
+  display: grid;
+  gap: var(--s4);
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s3);
+}
+
+.tempo {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+}
+
+.bpm {
+  color: var(--ink-hi);
+  font-size: var(--text-2xl);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s3);
+}
+
+.field {
+  display: grid;
+  gap: var(--s2);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.tempoRow {
+  display: grid;
+  grid-template-columns: var(--tap) minmax(0, 1fr) var(--tap) 76px;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.number {
+  padding: 0 var(--s2);
+  text-align: center;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-height: var(--tap);
+  color: var(--ink-hi);
+  font-size: var(--text-sm);
+}
+
+.check input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+}
