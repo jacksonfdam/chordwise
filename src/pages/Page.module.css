@@ -1,0 +1,91 @@
+/* Layout pieces shared by the pages. */
+.page {
+  display: grid;
+  gap: var(--s6);
+}
+
+.header {
+  display: grid;
+  gap: var(--s2);
+  max-width: 68ch;
+}
+
+.lead {
+  color: var(--ink-hi);
+}
+
+.section {
+  display: grid;
+  gap: var(--s4);
+  min-width: 0;
+}
+
+.sectionHeader {
+  display: grid;
+  gap: var(--s2);
+}
+
+.panel {
+  display: grid;
+  gap: var(--s4);
+  min-width: 0;
+  padding: var(--s4);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  box-shadow: var(--slab);
+  margin-bottom: var(--slab-depth);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: var(--s4);
+}
+
+.toolbar {
+  display: grid;
+  gap: var(--s3);
+}
+
+.field {
+  display: grid;
+  gap: var(--s2);
+  min-width: 0;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: var(--s3);
+}
+
+.select {
+  width: 100%;
+  min-height: var(--tap);
+  padding: 0 var(--s3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--glass);
+  color: var(--ink-hi);
+}
+
+.empty {
+  padding: var(--s5);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.hint {
+  padding: var(--s3) var(--s4);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 760px) {
+  .panel {
+    padding: var(--s5);
+  }
+}
