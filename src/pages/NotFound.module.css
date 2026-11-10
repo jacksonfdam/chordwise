@@ -1,0 +1,6 @@
+.wrap {
+  display: grid;
+  gap: var(--s4);
+  max-width: 60ch;
+  padding-block: var(--s7);
+}

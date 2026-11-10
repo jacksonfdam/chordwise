@@ -1,0 +1,134 @@
+.shell {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
+  max-width: var(--page);
+  margin-inline: auto;
+  padding: var(--s4) var(--s4) calc(var(--tap) + var(--s7));
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+  padding-bottom: var(--s4);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s3);
+  min-height: var(--tap);
+  color: var(--ink-hi);
+  font-size: var(--text-sm);
+  letter-spacing: var(--track);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.brandDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: var(--glow);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+
+/* Mobile first: the main navigation is a bottom bar within thumb reach. */
+.nav {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 20;
+  padding: var(--s2) var(--s3) calc(var(--s2) + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--edge);
+  background: var(--panel);
+}
+
+.navList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s1);
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font-size: var(--text-xs);
+  letter-spacing: var(--track);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.navLink:hover {
+  color: var(--ink-hi);
+}
+
+.navLinkActive {
+  border-color: var(--edge);
+  background: var(--bg);
+  color: var(--accent-ink);
+  text-shadow: var(--glow-text);
+}
+
+.main {
+  min-width: 0;
+  padding-block: var(--s2) var(--s6);
+}
+
+.main:focus {
+  outline: none;
+}
+
+.footer {
+  padding-top: var(--s4);
+  border-top: 1px solid var(--edge);
+  color: var(--ink);
+  font-size: var(--text-xs);
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+}
+
+.fallback {
+  padding: var(--s6) 0;
+  font-size: var(--text-sm);
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+}
+
+@media (min-width: 760px) {
+  .shell {
+    padding: var(--s5) var(--s5) var(--s6);
+  }
+
+  .nav {
+    position: static;
+    order: 0;
+    margin-inline: auto var(--s3);
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+
+  .navList {
+    display: flex;
+    gap: var(--s2);
+  }
+
+  .navLink {
+    padding: 0 var(--s4);
+    font-size: var(--text-sm);
+  }
+}
