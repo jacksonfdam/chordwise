@@ -5,6 +5,7 @@ import type { Chord, StrumPattern as StrumPatternData, TimeSignature } from "../
 import { useMetronome } from "../../hooks/useMetronome";
 import ui from "../../styles/ui.module.css";
 import { Icon } from "../Icon/Icon";
+import { StrumHand } from "../StrumHand/StrumHand";
 import { StrumPattern } from "../StrumPattern/StrumPattern";
 import { BeatDots } from "./BeatDots";
 import styles from "./Metronome.module.css";
@@ -98,7 +99,14 @@ export function Metronome({
 
       <BeatDots beatsPerBar={meter.beatsPerBar} position={metronome.position} />
 
-      {pattern && <StrumPattern pattern={pattern} activeSlot={metronome.position?.slot ?? null} />}
+      {pattern && (
+        <>
+          <StrumHand
+            stroke={metronome.position ? (pattern.grid[metronome.position.slot] ?? null) : null}
+          />
+          <StrumPattern pattern={pattern} activeSlot={metronome.position?.slot ?? null} />
+        </>
+      )}
 
       <div className={styles.controls}>
         <button
