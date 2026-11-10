@@ -27,6 +27,9 @@ no tracking; your progress is stored on your own device.
   every chord in it. Tap a chord in the song to see and hear it, transpose, switch to flats,
   change the text size and autoscroll while you play. Shapes written in the sheet itself
   (`G 3-x-0-0-3-3`) are used as given.
+- **Hand illustrations**: pictures of the fretting hand for the main open chords and the F
+  barre, the strumming hand for each kind of stroke (shown in step with the metronome), and
+  hand-position pictures in the lessons.
 - **Glossary** of every guitar term used in the lessons.
 - **Accessible and mobile-first**: keyboard shortcuts, visible focus, screen-reader
   announcements, reduced-motion support and large tap targets from 360 px wide.
@@ -100,7 +103,7 @@ src/
   styles/                tokens.css (design tokens), global.css, ui.module.css
   tests/                 Vitest suites
 design/                  SVG sources for the icons and the social preview image
-public/                  Static files: icons, manifest, service worker
+public/                  Static files: icons, hand illustrations, manifest, service worker
 ```
 
 All colors, spacing and motion values live in `src/styles/tokens.css` as CSS variables.
