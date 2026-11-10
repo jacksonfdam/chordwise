@@ -1,0 +1,85 @@
+.scroll {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: var(--s2);
+}
+
+.svg {
+  width: 100%;
+  min-width: 480px;
+  aspect-ratio: 520 / 150;
+  font-family: var(--mono);
+}
+
+.slab {
+  fill: var(--recess);
+  stroke: var(--edge);
+}
+
+.board {
+  fill: var(--body);
+  stroke: var(--line);
+}
+
+.fret {
+  stroke: var(--detail);
+}
+
+.nut {
+  stroke: var(--ink-hi);
+  stroke-width: 4;
+}
+
+.string {
+  stroke: var(--line);
+}
+
+.inlay {
+  fill: var(--detail);
+}
+
+.fretNumber {
+  fill: var(--ink);
+  font-size: 9px;
+}
+
+.note {
+  cursor: pointer;
+}
+
+.note circle {
+  fill: var(--deck);
+  stroke: var(--ink);
+}
+
+.note text {
+  fill: var(--ink-hi);
+  font-size: 9px;
+  pointer-events: none;
+}
+
+.sharp circle {
+  fill: var(--glass);
+  stroke: var(--detail);
+}
+
+.sharp text {
+  fill: var(--ink);
+  font-size: 7.5px;
+}
+
+.note:hover circle,
+.note:focus-visible circle {
+  fill: var(--accent);
+  stroke: var(--accent-hi);
+  filter: var(--glow-filter);
+}
+
+.note:hover text,
+.note:focus-visible text {
+  fill: var(--on-accent);
+}
+
+.note:focus-visible {
+  outline: none;
+}
