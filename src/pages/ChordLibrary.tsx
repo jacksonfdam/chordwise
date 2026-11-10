@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ChordDiagram } from "../components/ChordDiagram/ChordDiagram";
+import { HandDiagram, hasHandPicture } from "../components/HandDiagram/HandDiagram";
 import { Icon } from "../components/Icon/Icon";
 import { CHORD_FILTERS, CHORDS, findChord, matchesFilter, type ChordFilter } from "../data/chords";
 import { lessonTeachingChord } from "../data/lessons";
@@ -72,6 +73,15 @@ function ChordDetails({ chord, onPlay }: { chord: Chord; onPlay: (chord: Chord) 
           </button>
         </div>
       </div>
+
+      {hasHandPicture(chord) && (
+        <section aria-labelledby="chord-hand">
+          <h3 id="chord-hand" className={ui.eyebrow}>
+            Hand position
+          </h3>
+          <HandDiagram chord={chord} size="lg" />
+        </section>
+      )}
 
       <section aria-labelledby="chord-placement">
         <h3 id="chord-placement" className={ui.eyebrow}>
