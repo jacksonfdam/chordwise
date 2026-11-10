@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="Menlo, 'DejaVu Sans Mono', monospace">
+  <rect width="1200" height="630" fill="#0c0d0e" />
+  <rect x="40" y="48" width="1120" height="534" rx="28" fill="#0e0f10" stroke="#222426" stroke-width="2" />
+  <rect x="40" y="40" width="1120" height="534" rx="28" fill="#141516" stroke="#222426" stroke-width="2" />
+  <circle cx="108" cy="112" r="7" fill="#ff9a2e" />
+  <text x="130" y="120" fill="#e6e8e9" font-size="24" letter-spacing="5">CHORDWISE</text>
+  <text x="100" y="270" fill="#e6e8e9" font-size="60">Learn guitar chords,</text>
+  <text x="100" y="345" fill="#e6e8e9" font-size="60">one small step</text>
+  <text x="100" y="420" fill="#ff9a2e" font-size="60">at a time.</text>
+  <text x="100" y="500" fill="#8f9498" font-size="24" letter-spacing="3">GUIDED LESSONS · METRONOME · CHORD DRILLS</text>
+  <g transform="translate(845 150)">
+    <rect x="-18" y="38" width="236" height="290" rx="12" fill="#0e0f10" stroke="#222426" stroke-width="2" />
+    <rect x="-18" y="24" width="236" height="290" rx="12" fill="#17181a" stroke="#3d4144" stroke-width="2" />
+    <g stroke="#2b2e30" stroke-width="2">
+      <path d="M0 86h200M0 144h200M0 202h200M0 260h200" />
+    </g>
+    <g stroke="#3d4144" stroke-width="3">
+      <path d="M0 28v280M40 28v280M80 28v280M120 28v280M160 28v280M200 28v280" />
+    </g>
+    <path d="M-2 28h204" stroke="#e6e8e9" stroke-width="9" stroke-linecap="round" />
+    <g fill="none" stroke="#e6e8e9" stroke-width="3">
+      <circle cx="0" cy="-6" r="10" /><circle cx="120" cy="-6" r="10" /><circle cx="160" cy="-6" r="10" /><circle cx="200" cy="-6" r="10" />
+    </g>
+    <circle cx="40" cy="115" r="30" fill="#ff9a2e" opacity="0.22" />
+    <circle cx="80" cy="115" r="30" fill="#ff9a2e" opacity="0.22" />
+    <circle cx="40" cy="115" r="19" fill="#ff9a2e" stroke="#ffc77a" stroke-width="2" />
+    <circle cx="80" cy="115" r="19" fill="#ff9a2e" stroke="#ffc77a" stroke-width="2" />
+    <text x="40" y="123" fill="#1a1206" font-size="22" text-anchor="middle">2</text>
+    <text x="80" y="123" fill="#1a1206" font-size="22" text-anchor="middle">3</text>
+  </g>
+</svg>
