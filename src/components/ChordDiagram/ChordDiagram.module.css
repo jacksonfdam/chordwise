@@ -1,4 +1,6 @@
 .figure {
+  /* Anchors the visually hidden table, so it scrolls and clips with the diagram. */
+  position: relative;
   margin: 0;
   /* Fixed aspect ratio: the diagram never causes layout shift. */
   aspect-ratio: 140 / 176;
