@@ -1,0 +1,118 @@
+.drill {
+  display: grid;
+  gap: var(--s4);
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s3);
+}
+
+.tempo {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+}
+
+.bpm {
+  color: var(--ink-hi);
+  font-size: var(--text-xl);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.stage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--s5);
+  padding: var(--s4);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-md);
+  background: var(--recess);
+}
+
+.current,
+.next {
+  display: grid;
+  justify-items: center;
+  gap: var(--s1);
+}
+
+.currentName {
+  color: var(--accent-ink);
+  font-size: var(--text-2xl);
+  line-height: 1.1;
+  text-shadow: var(--glow-text);
+}
+
+.nextName {
+  color: var(--ink-hi);
+  font-size: var(--text-lg);
+  line-height: 1.1;
+}
+
+.cue {
+  min-height: 2.4em;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-sm);
+  color: var(--ink-hi);
+  font-size: var(--text-sm);
+  letter-spacing: var(--track);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cueLive {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--accent-ink);
+  box-shadow: var(--glow-soft);
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s3);
+}
+
+.ask {
+  display: grid;
+  gap: var(--s3);
+}
+
+.question {
+  color: var(--ink-hi);
+  font-size: var(--text-lg);
+  text-align: center;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s2);
+  margin: 0;
+}
+
+.metrics div {
+  display: grid;
+  gap: 2px;
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-sm);
+}
+
+.metrics dd {
+  margin: 0;
+  color: var(--ink-hi);
+  font-size: var(--text-lg);
+  font-variant-numeric: tabular-nums;
+}
+
+.tip {
+  font-size: var(--text-sm);
+}
