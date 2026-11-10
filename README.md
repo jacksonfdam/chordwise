@@ -6,8 +6,9 @@ plain-English instructions, a chord diagram, a suggested time and, where it help
 
 **Live:** <https://guitarchordwise.vercel.app>
 
-It is a single-page app that runs entirely in the browser. There is no account, no backend and
-no tracking; your progress is stored on your own device.
+It is a single-page app that runs entirely in the browser. There is no account and no backend;
+your progress is stored on your own device. The hosted site counts page views with Vercel Web
+Analytics, which sets no cookies and collects no personal data.
 
 ## Features
 
