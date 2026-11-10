@@ -4,7 +4,7 @@ A guided guitar chord trainer for absolute beginners. Chordwise teaches you to r
 chords from the very first lesson up to barre chords, one small step at a time: each step has
 plain-English instructions, a chord diagram, a suggested time and, where it helps, sound.
 
-**Live:** <https://chordwise-omega.vercel.app>
+**Live:** <https://guitarchordwise.vercel.app>
 
 It is a single-page app that runs entirely in the browser. There is no account, no backend and
 no tracking; your progress is stored on your own device.
