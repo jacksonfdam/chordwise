@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { BrowserRouter, useRoutes } from "react-router-dom";
 import { useAudioSettingsSync } from "./hooks/useAudio";
 import { useMotionAttribute } from "./hooks/useReducedMotion";
@@ -13,6 +14,8 @@ export function App() {
   return (
     <BrowserRouter>
       <AppRoutes />
+      {/* Anonymous page-view counts on the hosted site: no cookies, no personal data. */}
+      <Analytics />
     </BrowserRouter>
   );
 }
