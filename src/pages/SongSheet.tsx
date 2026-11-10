@@ -1,7 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ChordDiagram } from "../components/ChordDiagram/ChordDiagram";
+import { HandDiagram } from "../components/HandDiagram/HandDiagram";
 import { Icon } from "../components/Icon/Icon";
+import { Metronome } from "../components/Metronome/Metronome";
+import { PluckStrings } from "../components/StrumHand/PluckStrings";
 import { EXAMPLE_SHEET } from "../data/exampleSheet";
+import { STRUM_PATTERNS } from "../data/strumPatterns";
 import { layoutChordLine, parseChordSheet, type SheetLine } from "../domain/chordSheet";
 import { resolveChord, transposeSymbol, type ResolvedChord } from "../domain/chordSymbols";
 import { useAudio } from "../hooks/useAudio";
@@ -144,6 +148,42 @@ function SheetView({ lines, transpose, useFlats, selected, known, onPick }: Shee
   );
 }
 
+/** The chord being looked at: diagram, hand position, sound and string-by-string check. */
+function SelectedChord({
+  entry,
+  onPlay,
+  className,
+}: {
+  entry: ResolvedChord;
+  onPlay: () => void;
+  className: string;
+}) {
+  return (
+    <div className={className}>
+      <div className={styles.nowHead}>
+        <div className={styles.nowText}>
+          <p className={ui.eyebrow}>Selected chord</p>
+          <p className={styles.nowName}>{entry.symbol}</p>
+          <p className={ui.muted}>{entry.chord.fullName}</p>
+        </div>
+        <button type="button" className={ui.button} onClick={onPlay}>
+          <Icon name="sound" />
+          Play
+        </button>
+      </div>
+      <div className={styles.nowFigures}>
+        <ChordDiagram chord={entry.chord} size="md" showNoteNames />
+        <HandDiagram chord={entry.chord} />
+      </div>
+      {entry.note && <p className={styles.shapeNote}>{entry.note}</p>}
+      <details className={styles.more}>
+        <summary>Check it string by string</summary>
+        <PluckStrings key={entry.symbol} chord={entry.chord} />
+      </details>
+    </div>
+  );
+}
+
 export default function SongSheet() {
   const [draft, setDraft] = useState(readSavedSheet);
   const [source, setSource] = useState(readSavedSheet);
@@ -154,6 +194,7 @@ export default function SongSheet() {
   const [scrolling, setScrolling] = useState(false);
   const [picked, setPicked] = useState<string | null>(null);
   const [editing, setEditing] = useState(() => readSavedSheet() === "");
+  const [patternId, setPatternId] = useState("folk");
   const stripRef = useRef<HTMLUListElement>(null);
   const { strum } = useAudio();
 
@@ -207,6 +248,8 @@ export default function SongSheet() {
     setEditing(text.trim() === "");
   };
 
+  const pattern =
+    STRUM_PATTERNS.find((candidate) => candidate.id === patternId) ?? STRUM_PATTERNS[0];
   const hasSheet = sheet.lines.length > 0;
   const fontSize = `${(15 + fontStep * 1.5) / 16}rem`;
 
@@ -282,22 +325,14 @@ export default function SongSheet() {
         </p>
       )}
 
-      {hasSheet && chords.length > 0 && selected && (
+      {hasSheet && chords.length > 0 && selected && pattern && (
         <div className={styles.workspace}>
           <aside className={styles.chordPanel} aria-label="Chords in this song">
-            <div className={styles.now}>
-              <ChordDiagram chord={selected.chord} size="md" showNoteNames />
-              <div className={styles.nowText}>
-                <p className={ui.eyebrow}>Selected chord</p>
-                <p className={styles.nowName}>{selected.symbol}</p>
-                <p className={ui.muted}>{selected.chord.fullName}</p>
-                <button type="button" className={ui.button} onClick={() => strum(selected.chord)}>
-                  <Icon name="sound" />
-                  Play
-                </button>
-                {selected.note && <p className={styles.shapeNote}>{selected.note}</p>}
-              </div>
-            </div>
+            <SelectedChord
+              entry={selected}
+              onPlay={() => strum(selected.chord)}
+              className={`${styles.now} ${styles.nowWide}`}
+            />
             <ul ref={stripRef} className={styles.strip}>
               {chords.map((entry) => (
                 <li key={entry.symbol} data-symbol={entry.symbol}>
@@ -320,6 +355,12 @@ export default function SongSheet() {
             <h2 id="sheet-song-title" className="sr-only">
               Song
             </h2>
+            <SelectedChord
+              entry={selected}
+              onPlay={() => strum(selected.chord)}
+              className={`${styles.now} ${styles.nowNarrow}`}
+            />
+
             <div className={styles.toolbar} role="group" aria-label="Sheet controls">
               <button
                 type="button"
@@ -433,6 +474,39 @@ export default function SongSheet() {
                 onPick={pick}
               />
             </div>
+
+            <section className={page.panel} aria-labelledby="sheet-strum-title">
+              <div className={page.sectionHeader}>
+                <h3 id="sheet-strum-title">Strumming</h3>
+                <p className={ui.muted}>
+                  Pick a pattern and watch the hand. It plays the selected chord, {selected.symbol}.
+                </p>
+              </div>
+              <div className={page.field}>
+                <label htmlFor="sheet-pattern" className={ui.eyebrow}>
+                  Pattern
+                </label>
+                <select
+                  id="sheet-pattern"
+                  className={page.select}
+                  value={pattern.id}
+                  onChange={(event) => setPatternId(event.target.value)}
+                >
+                  {STRUM_PATTERNS.map((candidate) => (
+                    <option key={candidate.id} value={candidate.id}>
+                      {candidate.name} ({candidate.timeSignature})
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <Metronome
+                key={pattern.id}
+                pattern={pattern}
+                chord={selected.chord}
+                initialBpm={64}
+                title={pattern.name}
+              />
+            </section>
           </section>
         </div>
       )}

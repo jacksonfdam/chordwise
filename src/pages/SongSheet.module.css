@@ -56,9 +56,67 @@
   background: var(--bg);
 }
 
-/* On a phone the strip alone shows the shapes; the large view appears on wide screens. */
+/* The selected chord sits in the side panel on wide screens and above the song on phones. */
 .now {
+  display: grid;
+  gap: var(--s3);
+  min-width: 0;
+}
+
+.nowWide {
   display: none;
+}
+
+.nowNarrow {
+  padding: var(--s4);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+}
+
+.nowHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+}
+
+.nowText {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.nowName {
+  color: var(--accent-ink);
+  font-size: var(--text-xl);
+  line-height: 1.1;
+  text-shadow: var(--glow-text);
+}
+
+.nowFigures {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s3) var(--s4);
+}
+
+.nowFigures > figure:first-child {
+  width: 120px;
+}
+
+.more summary {
+  min-height: var(--tap);
+  display: flex;
+  align-items: center;
+  color: var(--ink-hi);
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+
+.more[open] summary {
+  margin-bottom: var(--s2);
 }
 
 .strip {
@@ -235,30 +293,14 @@
     background: var(--panel);
   }
 
-  .now {
-    display: flex;
-    align-items: center;
-    gap: var(--s4);
+  .nowWide {
+    display: grid;
     padding-bottom: var(--s4);
     border-bottom: 1px solid var(--edge);
   }
 
-  .now figure {
-    width: 132px;
-  }
-
-  .nowText {
-    display: grid;
-    justify-items: start;
-    gap: var(--s1);
-    min-width: 0;
-  }
-
-  .nowName {
-    color: var(--accent-ink);
-    font-size: var(--text-xl);
-    line-height: 1.1;
-    text-shadow: var(--glow-text);
+  .nowNarrow {
+    display: none;
   }
 
   .strip {
