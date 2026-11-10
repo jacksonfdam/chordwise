@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
+import { SettingsMenu } from "../Settings/SettingsMenu";
 import styles from "./Layout.module.css";
 
 const NAV_ITEMS = [
@@ -44,6 +45,9 @@ export function Layout() {
             ))}
           </ul>
         </nav>
+        <div className={styles.actions}>
+          <SettingsMenu />
+        </div>
       </header>
       <main id="main" className={styles.main} tabIndex={-1}>
         <Suspense fallback={<PageFallback />}>
