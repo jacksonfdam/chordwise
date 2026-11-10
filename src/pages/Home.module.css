@@ -1,0 +1,40 @@
+.hero {
+  display: grid;
+  gap: var(--s5);
+  padding: var(--s5) var(--s4);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  box-shadow: var(--slab);
+  margin-bottom: var(--slab-depth);
+}
+
+.heroText {
+  display: grid;
+  align-content: center;
+  gap: var(--s4);
+  min-width: 0;
+}
+
+.title {
+  max-width: 18ch;
+  font-size: clamp(1.6rem, 6vw, 2.4rem);
+  line-height: 1.15;
+}
+
+.heroFigure {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: var(--s4);
+  padding: var(--s4);
+  border-radius: var(--radius-md);
+  background: var(--haze);
+}
+
+@media (min-width: 760px) {
+  .hero {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    padding: var(--s6);
+  }
+}
