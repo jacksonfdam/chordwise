@@ -1,0 +1,102 @@
+.wrap {
+  display: grid;
+  gap: var(--s4);
+  width: 100%;
+}
+
+.svg {
+  width: 100%;
+  max-width: 460px;
+  margin-inline: auto;
+  aspect-ratio: 366 / 226;
+  background: var(--haze);
+}
+
+.svg * {
+  vector-effect: non-scaling-stroke;
+}
+
+.side {
+  fill: var(--recess);
+  stroke: var(--line);
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+
+.top {
+  fill: var(--body);
+  stroke: var(--line);
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+
+.hole {
+  fill: var(--glass);
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.nut {
+  fill: var(--ink-hi);
+  stroke: var(--ink-hi);
+  stroke-width: 1;
+}
+
+.line {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.peg {
+  fill: var(--deck);
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.part {
+  cursor: pointer;
+  transition:
+    stroke var(--slow) var(--ease),
+    fill var(--slow) var(--ease);
+}
+
+/* The selected part is the one live thing in the drawing. */
+.hot,
+.hot .line,
+.hot .peg {
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  filter: var(--glow-filter);
+}
+
+.hot.top,
+.hot.hole {
+  fill: var(--glass-on);
+}
+
+.hot.nut,
+.hot .peg {
+  fill: var(--accent);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s2);
+}
+
+.description {
+  min-height: 4.8em;
+  padding: var(--s3) var(--s4);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-md);
+  background: var(--recess);
+  font-size: var(--text-sm);
+}
+
+.partName {
+  color: var(--accent-ink);
+  font-weight: 500;
+}
