@@ -1,0 +1,118 @@
+import type { Lesson } from "../../domain/types";
+
+const id = "beginner-08-basic-strumming";
+
+export const lesson: Lesson = {
+  id,
+  order: 8,
+  level: "beginner",
+  title: "Basic strumming: down on the beat",
+  summary: "Learn what a beat, a bar and BPM are, and strum in time with a slow click.",
+  estimatedMinutes: 7,
+  prerequisites: ["beginner-07-g-dm"],
+  chordIds: ["Em", "Am"],
+  goals: [
+    "Name what a beat, a bar and BPM are.",
+    "Count 1-2-3-4 out loud with a metronome.",
+    "Play a down-strum on every beat at 60 BPM.",
+  ],
+  steps: [
+    {
+      id: `${id}-beat-bar-bpm`,
+      title: "Beat, bar and BPM",
+      body: "Music has a steady pulse, like a heartbeat. One pulse is called a beat. Beats come in groups of four, and one group is called a bar. BPM means beats per minute: the speed of the pulse. At 60 BPM there is one beat every second.",
+      durationSec: 25,
+      action: "read",
+    },
+    {
+      id: `${id}-count`,
+      title: "Count with the click",
+      body: "A metronome is a steady click that keeps time for you. Do not play yet. Count out loud with the click: 1, 2, 3, 4, then start again at 1. Tap your foot on every click. Each time you say 1, a new bar begins.",
+      durationSec: 30,
+      action: "metronome",
+      bpm: 60,
+    },
+    {
+      id: `${id}-grip`,
+      title: "Pick or thumb",
+      body: "A pick is a small flat piece of plastic used to strum. Hold it between the pad of your thumb and the side of finger 1, with only a small tip showing. Grip it lightly, so it can give a little. No pick? Strum down with the pad of your thumb instead.",
+      durationSec: 30,
+      action: "read",
+    },
+    {
+      id: `${id}-wrist`,
+      title: "Strum from the wrist",
+      body: "Hold Em. Rest your forearm on the top edge of the guitar body. A down-strum is one brush across the strings toward the floor. Let your wrist do the work, as if shaking water off your hand. Play a few slow down-strums without the click.",
+      durationSec: 40,
+      chordId: "Em",
+      action: "strum",
+      checklist: [
+        "My wrist is loose and my shoulder is relaxed.",
+        "The strum brushes all six strings in one motion.",
+        "I hold the pick lightly, or use the pad of my thumb.",
+      ],
+    },
+    {
+      id: `${id}-long-strums`,
+      title: "Long strums on Em",
+      body: "Now add the click at 60 BPM. Keep counting 1, 2, 3, 4 out loud. Strum down on beat 1 and on beat 3, and let the chord ring on beats 2 and 4. Follow the moving marker on the grid if you lose your place.",
+      durationSec: 60,
+      chordId: "Em",
+      action: "strum",
+      strumPatternId: "whole-notes",
+      bpm: 60,
+    },
+    {
+      id: `${id}-quarter-notes`,
+      title: "A strum on every beat",
+      body: "Now strum down on all four beats: 1, 2, 3, 4. A note that lasts one beat is called a quarter note. Make beat 1 a little louder so you always hear where the bar starts. Land each strum exactly on the click, not before it.",
+      durationSec: 60,
+      chordId: "Em",
+      action: "strum",
+      strumPatternId: "quarter-notes",
+      bpm: 60,
+    },
+    {
+      id: `${id}-quarter-notes-am`,
+      title: "Same beat on Am",
+      body: "Change to Am and keep the same four down-strums per bar. Am does not use the low E string (the thickest), so start each strum on the A string. Aim your hand a little lower instead of looking at it. Keep counting out loud.",
+      durationSec: 60,
+      chordId: "Am",
+      action: "strum",
+      strumPatternId: "quarter-notes",
+      bpm: 60,
+    },
+    {
+      id: `${id}-quiz`,
+      title: "Quick check",
+      body: "One question before the recap. Think about what the click was doing while you played.",
+      durationSec: 20,
+      action: "quiz",
+      quiz: {
+        question: "The metronome is set to 60 BPM. What does that mean?",
+        options: [
+          "There are 60 beats in every minute.",
+          "There are 60 bars in every minute.",
+          "Each bar has 60 beats.",
+        ],
+        answerIndex: 0,
+        explanation:
+          "BPM means beats per minute. At 60 BPM you hear one beat every second, and a bar of four beats lasts four seconds.",
+      },
+    },
+    {
+      id: `${id}-summary`,
+      title: "Lesson recap",
+      body: "You can now count beats and bars and strum down in time with a click. Steady time matters more than speed, so keep the click slow until every strum lands on it.",
+      durationSec: 15,
+      action: "read",
+      visual: "summary",
+      checklist: [
+        "I can explain what a beat, a bar and BPM are.",
+        "I can count 1, 2, 3, 4 out loud while I strum.",
+        "I can play four down-strums per bar at 60 BPM.",
+        "I can keep my wrist relaxed while I strum.",
+      ],
+    },
+  ],
+};
