@@ -12,8 +12,12 @@ import { Fretboard } from "../Fretboard/Fretboard";
 import { OpenStrings } from "../Fretboard/OpenStrings";
 import { RootNoteTable } from "../Fretboard/RootNoteTable";
 import { GuitarParts } from "../GuitarParts/GuitarParts";
+import { HandDiagram } from "../HandDiagram/HandDiagram";
+import { HandPicture } from "../HandDiagram/HandPicture";
 import { Icon } from "../Icon/Icon";
 import { BeatDots } from "../Metronome/BeatDots";
+import { PluckStrings } from "../StrumHand/PluckStrings";
+import { StrumHand } from "../StrumHand/StrumHand";
 import { StrumPattern } from "../StrumPattern/StrumPattern";
 import { HoldCycle } from "./HoldCycle";
 import { Quiz } from "./Quiz";
@@ -145,14 +149,17 @@ export function StepStage({
           <p className={styles.chordName}>
             {chord.name} <span className={styles.chordFull}>{chord.fullName}</span>
           </p>
-          <ChordDiagram
-            chord={chord}
-            size="lg"
-            highlightFingers={step.highlightFingers}
-            highlightStrings={step.highlightStrings}
-            animateIn={step.action === "place" || step.autoplayChord === true}
-            showNoteNames={step.visual === "diagram-anatomy"}
-          />
+          <div className={styles.diagramRow}>
+            <ChordDiagram
+              chord={chord}
+              size="lg"
+              highlightFingers={step.highlightFingers}
+              highlightStrings={step.highlightStrings}
+              animateIn={step.action === "place" || step.autoplayChord === true}
+              showNoteNames={step.visual === "diagram-anatomy"}
+            />
+            <HandDiagram chord={chord} size="lg" />
+          </div>
         </div>
       )}
 
@@ -169,6 +176,14 @@ export function StepStage({
         </div>
       )}
 
+      {/* Checking a chord means picking its strings one at a time. */}
+      {chord && step.action === "strum" && !pattern && (
+        <PluckStrings key={chord.id} chord={chord} />
+      )}
+
+      {(step.visual === "thumb-behind-neck" ||
+        step.visual === "picking-hand-position" ||
+        step.visual === "thumb-strum") && <HandPicture name={step.visual} />}
       {step.visual === "guitar-parts" && <GuitarParts />}
       {step.visual === "string-names" && <OpenStrings mode="names" />}
       {step.visual === "tuner" && <OpenStrings mode="tuner" />}
@@ -235,6 +250,9 @@ export function StepStage({
           <BeatDots beatsPerBar={meterOf(timeSignature).beatsPerBar} position={metronomePosition} />
           {pattern && (
             <>
+              <StrumHand
+                stroke={metronomePosition ? (pattern.grid[metronomePosition.slot] ?? null) : null}
+              />
               <StrumPattern pattern={pattern} activeSlot={metronomePosition?.slot ?? null} />
               <p className={ui.muted}>{pattern.description}</p>
             </>

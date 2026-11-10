@@ -101,6 +101,15 @@
   background: var(--haze), var(--recess);
 }
 
+.diagramRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s4) var(--s5);
+  width: 100%;
+}
+
 .chordName {
   color: var(--ink-hi);
   font-size: var(--text-xl);

@@ -53,6 +53,9 @@ export type StepVisual =
   | "tuner"
   | "root-notes"
   | "mistakes"
+  | "thumb-behind-neck"
+  | "picking-hand-position"
+  | "thumb-strum"
   | "summary";
 
 export interface QuizQuestion {
