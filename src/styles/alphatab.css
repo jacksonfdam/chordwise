@@ -1,0 +1,22 @@
+/*
+ * Styles for the elements the tab engine creates while playing. They are
+ * generated at run time, so they cannot be reached from a CSS module.
+ */
+.at-cursor-bar {
+  background: var(--accent-dim);
+}
+
+.at-cursor-beat {
+  width: 3px;
+  background: var(--accent);
+  box-shadow: var(--glow);
+}
+
+.at-selection div {
+  background: var(--accent-dim);
+}
+
+.at-highlight * {
+  fill: var(--accent);
+  stroke: var(--accent);
+}

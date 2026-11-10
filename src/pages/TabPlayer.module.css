@@ -1,0 +1,111 @@
+.player {
+  display: grid;
+  gap: var(--s4);
+  min-width: 0;
+  padding: var(--s4);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  box-shadow: var(--slab);
+  margin-bottom: var(--slab-depth);
+}
+
+.transport {
+  display: grid;
+  gap: var(--s3);
+}
+
+.titles {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.songTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.time {
+  margin-left: auto;
+  color: var(--ink-hi);
+  font-variant-numeric: tabular-nums;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--s3);
+}
+
+.control {
+  display: grid;
+  gap: var(--s1);
+}
+
+.control select {
+  min-width: 92px;
+}
+
+.tracks {
+  display: grid;
+  gap: var(--s2);
+}
+
+.track {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--tap) var(--tap);
+  gap: var(--s2);
+}
+
+.track button {
+  justify-content: center;
+  padding-inline: var(--s2);
+}
+
+.track button:first-child {
+  justify-content: flex-start;
+  padding-inline: var(--s4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The notation scrolls inside its own box so the controls stay in reach. */
+.scroll {
+  position: relative;
+  max-height: 60vh;
+  min-height: 200px;
+  overflow: auto;
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-md);
+  background: var(--recess);
+}
+
+.surface {
+  min-width: 320px;
+}
+
+.neck {
+  display: grid;
+  gap: var(--s2);
+  min-width: 0;
+}
+
+@media (min-width: 760px) {
+  .player {
+    padding: var(--s5);
+  }
+
+  .tracks {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+}
