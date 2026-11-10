@@ -63,6 +63,7 @@ export const lesson: Lesson = {
       chordId: "F-barre",
       highlightFingers: [1],
       action: "hold",
+      visual: "thumb-behind-neck",
       holdCycle: { holdSec: 5, restSec: 10, reps: 4 },
     },
     {

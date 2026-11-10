@@ -79,6 +79,7 @@ export const lesson: Lesson = {
       body: "The picking hand makes the sound. It is the hand over the sound hole, the right hand for most players. Rest that forearm on the top edge of the body. Now brush your thumb slowly down across all six strings, from thickest to thinnest. That motion is called a strum.",
       durationSec: 30,
       action: "read",
+      visual: "picking-hand-position",
     },
     {
       id: `${id}-fretting-hand`,

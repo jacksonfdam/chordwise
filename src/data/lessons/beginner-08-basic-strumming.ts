@@ -38,6 +38,7 @@ export const lesson: Lesson = {
       body: "A pick is a small flat piece of plastic used to strum. Hold it between the pad of your thumb and the side of finger 1, with only a small tip showing. Grip it lightly, so it can give a little. No pick? Strum down with the pad of your thumb instead.",
       durationSec: 30,
       action: "read",
+      visual: "thumb-strum",
     },
     {
       id: `${id}-wrist`,
