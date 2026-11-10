@@ -25,6 +25,12 @@ const FEATURES: readonly { title: string; text: string; to: string; link: string
     link: "Open the library",
   },
   {
+    title: "Play a song",
+    text: "Paste a chord sheet and get a diagram for every chord in it, with transpose and autoscroll.",
+    to: "/songs",
+    link: "Open a song sheet",
+  },
+  {
     title: "Practice tools",
     text: "A steady metronome, strumming patterns you can see and hear, and chord-change drills.",
     to: "/tools",
