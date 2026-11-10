@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { ChordDiagram } from "../components/ChordDiagram/ChordDiagram";
 import { HandDiagram } from "../components/HandDiagram/HandDiagram";
 import { Icon } from "../components/Icon/Icon";
 import { Metronome } from "../components/Metronome/Metronome";
 import { PluckStrings } from "../components/StrumHand/PluckStrings";
 import { EXAMPLE_SHEET } from "../data/exampleSheet";
+import { SHEET_STORAGE_KEY } from "../data/sheetStorage";
 import { STRUM_PATTERNS } from "../data/strumPatterns";
 import { layoutChordLine, parseChordSheet, type SheetLine } from "../domain/chordSheet";
 import { resolveChord, transposeSymbol, type ResolvedChord } from "../domain/chordSymbols";
@@ -13,7 +15,7 @@ import ui from "../styles/ui.module.css";
 import page from "./Page.module.css";
 import styles from "./SongSheet.module.css";
 
-const STORAGE_KEY = "chordwise:sheet:v1";
+const STORAGE_KEY = SHEET_STORAGE_KEY;
 const SPEEDS = [0.5, 0.75, 1, 1.5, 2] as const;
 /** Pixels per second at speed 1. */
 const SCROLL_RATE = 22;
@@ -262,6 +264,18 @@ export default function SongSheet() {
           Paste a chord sheet, the kind with chord names written above the lyrics. You get a diagram
           for every chord, and you can tap any chord in the song to see and hear it.
         </p>
+        <ul className={ui.row}>
+          <li>
+            <span className={ui.chipButton} aria-current="page" data-current="true">
+              Chord sheet
+            </span>
+          </li>
+          <li>
+            <Link className={ui.chipButton} to="/tabs">
+              Tab player
+            </Link>
+          </li>
+        </ul>
       </header>
 
       <section className={page.panel} aria-labelledby="sheet-editor-title">

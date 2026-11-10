@@ -118,12 +118,18 @@
   font-size: var(--text-sm);
 }
 
+.chipButton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .chipButton:hover {
   border-color: var(--line);
   color: var(--ink-hi);
 }
 
-.chipButton[aria-pressed="true"] {
+.chipButton[aria-pressed="true"],
+.chipButton[data-current="true"] {
   border-color: var(--accent);
   color: var(--accent-ink);
   background: var(--accent-dim);
