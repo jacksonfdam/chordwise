@@ -44,7 +44,10 @@ export function Layout() {
                 <NavLink
                   to={item.to}
                   className={({ isActive }) =>
-                    isActive ? `${styles.navLink} ${styles.navLinkActive}` : styles.navLink
+                    // The tab player lives under "Songs" in the navigation.
+                    isActive || (item.to === "/songs" && pathname.startsWith("/tabs"))
+                      ? `${styles.navLink} ${styles.navLinkActive}`
+                      : styles.navLink
                   }
                 >
                   {item.label}

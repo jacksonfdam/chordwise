@@ -7,6 +7,7 @@ const LessonList = lazy(() => import("./pages/LessonList"));
 const LessonPlayer = lazy(() => import("./pages/LessonPlayer"));
 const ChordLibrary = lazy(() => import("./pages/ChordLibrary"));
 const SongSheet = lazy(() => import("./pages/SongSheet"));
+const TabPlayer = lazy(() => import("./pages/TabPlayer"));
 const Tools = lazy(() => import("./pages/Tools"));
 const Glossary = lazy(() => import("./pages/Glossary"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -29,6 +30,7 @@ export const routes: RouteObject[] = [
       { path: "/chords", element: <ChordLibrary /> },
       { path: "/chords/:chordId", element: <ChordLibrary /> },
       { path: "/songs", element: <SongSheet /> },
+      { path: "/tabs", element: <TabPlayer /> },
       { path: "/tools", element: <Tools /> },
       { path: "/glossary", element: <Glossary /> },
       { path: "*", element: <NotFound /> },
