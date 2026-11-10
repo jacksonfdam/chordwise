@@ -6,6 +6,7 @@ import styles from "./Layout.module.css";
 const NAV_ITEMS = [
   { to: "/lessons", label: "Lessons" },
   { to: "/chords", label: "Chords" },
+  { to: "/songs", label: "Songs" },
   { to: "/tools", label: "Tools" },
   { to: "/glossary", label: "Glossary" },
 ] as const;
