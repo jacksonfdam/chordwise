@@ -1,0 +1,184 @@
+/* Shared building blocks, composed by component modules. */
+
+.eyebrow {
+  color: var(--ink);
+  font-size: var(--text-xs);
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+}
+
+.card {
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  box-shadow: var(--slab);
+  margin-bottom: var(--slab-depth);
+}
+
+.well {
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-md);
+  background: var(--recess);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
+  min-height: var(--tap);
+  min-width: var(--tap);
+  padding: 0 var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--body);
+  color: var(--ink-hi);
+  font-size: var(--text-sm);
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: var(--slab);
+  margin-bottom: var(--slab-depth);
+  transition:
+    transform var(--fast) var(--ease),
+    box-shadow var(--fast) var(--ease),
+    border-color var(--fast) var(--ease);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button:hover {
+  border-color: var(--ink);
+}
+
+.button:active,
+.button[aria-pressed="true"] {
+  transform: translateY(3px);
+  box-shadow: var(--slab-pressed);
+}
+
+.button[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  text-shadow: var(--glow-text);
+}
+
+.button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.primary {
+  composes: button;
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow:
+    var(--slab),
+    var(--glow-soft);
+}
+
+.primary:hover {
+  border-color: var(--accent-hi);
+  background: var(--accent-hi);
+}
+
+.ghost {
+  composes: button;
+  border-color: var(--edge);
+  background: none;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+.ghost:active,
+.ghost[aria-pressed="true"] {
+  transform: none;
+  box-shadow: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+  min-height: 28px;
+  padding: 0 var(--s3);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-pill);
+  background: none;
+  color: var(--ink);
+  font-size: var(--text-xs);
+  letter-spacing: var(--track-tight);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.chipButton {
+  composes: chip;
+  min-height: var(--tap);
+  padding: 0 var(--s4);
+  font-size: var(--text-sm);
+}
+
+.chipButton:hover {
+  border-color: var(--line);
+  color: var(--ink-hi);
+}
+
+.chipButton[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  background: var(--accent-dim);
+}
+
+.input {
+  width: 100%;
+  min-height: var(--tap);
+  padding: 0 var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--glass);
+  color: var(--ink-hi);
+}
+
+.input::placeholder {
+  color: var(--ink);
+}
+
+.range {
+  width: 100%;
+  min-height: var(--tap);
+  accent-color: var(--accent);
+  background: none;
+}
+
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: var(--glow);
+}
+
+.stack {
+  display: grid;
+  gap: var(--s4);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.muted {
+  color: var(--ink);
+  font-size: var(--text-sm);
+}
+
+.live {
+  color: var(--accent-ink);
+  text-shadow: var(--glow-text);
+}

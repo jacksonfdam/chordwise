@@ -1,0 +1,102 @@
+/*
+ * Design tokens (iso-glow): a monochrome hairline drawing on a dark panel.
+ * One accent colour, used only on what is live, and live things glow.
+ * The light theme keeps the accent but drops every glow.
+ */
+:root {
+  color-scheme: dark;
+
+  /* surfaces */
+  --bg: #0c0d0e;
+  --panel: #141516;
+  --edge: #222426;
+  --body: #17181a;
+  --deck: #1b1d1f;
+  --glass: #0f1011;
+  --glass-on: #1a1410;
+  --recess: #0e0f10;
+
+  /* lines */
+  --line: #3d4144;
+  --detail: #2b2e30;
+
+  /* text */
+  --ink: #8f9498;
+  --ink-hi: #e6e8e9;
+  --live: #f4f5f5;
+
+  /* accent: only on live things */
+  --accent: #ff9a2e;
+  --accent-hi: #ffc77a;
+  --accent-dim: rgba(255, 154, 46, 0.1);
+  --accent-ink: #ff9a2e;
+  --on-accent: #1a1206;
+
+  /* glow language */
+  --glow: 0 0 12px rgba(255, 154, 46, 0.65);
+  --glow-soft: 0 0 8px rgba(255, 154, 46, 0.35);
+  --glow-text: 0 0 8px rgba(255, 154, 46, 0.7);
+  --glow-filter: drop-shadow(0 0 5px rgba(255, 154, 46, 0.8));
+  --haze: radial-gradient(ellipse 50% 45% at 50% 52%, var(--accent-dim), transparent 72%);
+
+  /* isometric depth: a plate with a visible lower edge */
+  --slab: 0 5px 0 -1px var(--recess), 0 5px 0 0 var(--edge);
+  --slab-pressed: 0 2px 0 -1px var(--recess), 0 2px 0 0 var(--edge);
+  --slab-depth: 5px;
+
+  /* type */
+  --mono: "DM Mono", ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  --text-xs: 0.6875rem;
+  --text-sm: 0.8125rem;
+  --text-md: 0.9375rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --track: 0.14em;
+  --track-tight: 0.05em;
+
+  /* shape and space */
+  --radius-lg: 22px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+  --tap: 44px;
+  --page: 1120px;
+
+  /* motion */
+  --fast: 120ms;
+  --slow: 320ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --bg: #e9eaea;
+    --panel: #f6f6f5;
+    --edge: #d6d8d8;
+    --body: #ececeb;
+    --deck: #f3f3f2;
+    --glass: #dcdede;
+    --glass-on: #f3e6da;
+    --recess: #e2e4e4;
+    --line: #8e9397;
+    --detail: #c3c6c8;
+    --ink: #53585c;
+    --ink-hi: #16181a;
+    --live: #0c0d0e;
+    --accent-ink: #8f4400;
+    --glow: none;
+    --glow-soft: none;
+    --glow-text: none;
+    --glow-filter: none;
+    --haze: none;
+  }
+}
