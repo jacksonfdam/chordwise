@@ -1,0 +1,123 @@
+.figure {
+  display: grid;
+  gap: var(--s2);
+  width: min(300px, 100%);
+  margin: 0 auto;
+}
+
+/* The pictures are stacked; only the one for the current stroke is visible. */
+.stage {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-md);
+  background: var(--art-bg);
+}
+
+.frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+.frameOn {
+  opacity: 1;
+}
+
+.caption {
+  min-height: 2.8em;
+  color: var(--ink);
+  font-size: var(--text-xs);
+  text-align: center;
+}
+
+/* ---------- picking ---------- */
+.pluck {
+  display: grid;
+  gap: var(--s3);
+  justify-items: center;
+}
+
+.pluckPicture {
+  width: min(240px, 100%);
+  height: auto;
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-md);
+  background: var(--art-bg);
+}
+
+.pluckSide {
+  display: grid;
+  gap: var(--s3);
+  justify-items: center;
+  width: 100%;
+}
+
+.strings {
+  display: grid;
+  gap: var(--s1);
+  width: min(360px, 100%);
+}
+
+.stringButton {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr) 2.5rem;
+  align-items: center;
+  gap: var(--s3);
+  width: 100%;
+  min-height: var(--tap);
+  padding: 0 var(--s3);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-sm);
+  background: var(--body);
+  color: var(--ink-hi);
+  font-size: var(--text-sm);
+  text-align: left;
+}
+
+.stringButton:hover:not(:disabled) {
+  border-color: var(--line);
+}
+
+.stringButton:disabled {
+  color: var(--ink);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.wire {
+  display: block;
+  border-radius: 2px;
+  background: var(--line);
+}
+
+.stringNote {
+  text-align: right;
+}
+
+.stringLive {
+  border-color: var(--accent);
+}
+
+.stringLive .stringName,
+.stringLive .stringNote {
+  color: var(--accent-ink);
+  text-shadow: var(--glow-text);
+}
+
+.stringLive .wire {
+  background: var(--accent);
+  box-shadow: var(--glow);
+}
+
+@media (min-width: 560px) {
+  .pluck {
+    grid-template-columns: 220px minmax(0, 1fr);
+    align-items: center;
+    justify-items: stretch;
+  }
+}
