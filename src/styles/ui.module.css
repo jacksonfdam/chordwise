@@ -73,9 +73,7 @@
   border-color: var(--accent);
   background: var(--accent);
   color: var(--on-accent);
-  box-shadow:
-    var(--slab),
-    var(--glow-soft);
+  box-shadow: var(--slab), var(--glow-soft);
 }
 
 .primary:hover {
