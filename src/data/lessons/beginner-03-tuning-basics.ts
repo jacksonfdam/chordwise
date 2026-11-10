@@ -1,0 +1,113 @@
+import type { Lesson } from "../../domain/types";
+
+const id = "beginner-03-tuning-basics";
+
+export const lesson: Lesson = {
+  id,
+  order: 3,
+  level: "beginner",
+  title: "Tuning basics",
+  summary: "Get all six strings to the right notes, by ear and with a clip-on tuner.",
+  estimatedMinutes: 8,
+  prerequisites: ["beginner-02-read-a-chord-diagram"],
+  chordIds: [],
+  goals: [
+    "Name the six notes of standard tuning.",
+    "Tell whether a string is flat or sharp.",
+    "Tune each string by ear against a reference tone.",
+    "Tune with a clip-on tuner, always tuning up to the note.",
+  ],
+  steps: [
+    {
+      id: `${id}-why`,
+      title: "Why tune first",
+      body: "Tuning means setting each string to its correct note. A guitar goes out of tune a little every day, and new strings drift even faster. Out of tune, even a perfectly played chord sounds wrong. So tune every time you pick up the guitar. It takes about a minute.",
+      durationSec: 20,
+      action: "read",
+    },
+    {
+      id: `${id}-standard-tuning`,
+      title: "Standard tuning",
+      body: "Standard tuning is the usual set of notes for the six open strings. An open string is one you play without pressing a fret. From thickest to thinnest the notes are E, A, D, G, B, E. Tap each string to hear the note it should make.",
+      durationSec: 30,
+      action: "read",
+      visual: "string-names",
+    },
+    {
+      id: `${id}-flat-sharp`,
+      title: "Flat and sharp",
+      body: "Pitch is how high or low a note sounds. A string that sounds lower than its note is flat. A string that sounds higher than its note is sharp. Tightening a string raises its pitch. Loosening it lowers the pitch. Tuning is fixing flat and sharp strings.",
+      durationSec: 25,
+      action: "read",
+    },
+    {
+      id: `${id}-pegs`,
+      title: "Find the right peg",
+      body: "Each string winds around one tuning peg on the headstock. Follow the low E string (the thickest) up to its peg. Pick the string and turn the peg a little while it rings. Hear the pitch move, then turn it back. Always check you are turning the peg of the string you picked.",
+      durationSec: 30,
+      action: "read",
+      visual: "guitar-parts",
+    },
+    {
+      id: `${id}-by-ear`,
+      title: "Tune by ear",
+      body: "A reference tone is a correct note to copy. Tap the low E button, then pick your low E string. Is your string lower or higher than the tone? Turn the peg slowly until the two sound like one steady note. A wobble in the sound means you are close.",
+      durationSec: 60,
+      action: "read",
+      visual: "tuner",
+    },
+    {
+      id: `${id}-tune-up`,
+      title: "Always tune up to the note",
+      body: "Finish every string by tightening, never by loosening. If a string is flat, tighten it slowly up to the note. If it is sharp, loosen it until it is a little below the note, then tighten back up to it. A string tuned this way holds its pitch longer.",
+      durationSec: 30,
+      action: "read",
+      visual: "tuner",
+    },
+    {
+      id: `${id}-clip-on`,
+      title: "Use a clip-on tuner",
+      body: "A clip-on tuner is a small device that clips onto the headstock and reads the note from the wood's vibration. Pick one string and let it ring. The screen shows a note name and a needle. Needle left of center: flat, tighten. Right of center: sharp. Centered: in tune.",
+      durationSec: 30,
+      action: "read",
+      checklist: [
+        "The note name on the screen matches the string I am tuning.",
+        "I pick one string at a time and let it ring.",
+      ],
+    },
+    {
+      id: `${id}-all-six`,
+      title: "Tune all six strings",
+      body: "Now tune every string, thickest first: E, A, D, G, B, E. Use the reference tones here or your clip-on tuner. When you finish, check all six once more from the start. Tightening one string can pull the others slightly flat.",
+      durationSec: 120,
+      action: "read",
+      visual: "tuner",
+      checklist: [
+        "Each string matches its reference tone.",
+        "I finished every string by tuning up to the note.",
+        "I checked all six strings a second time.",
+      ],
+    },
+    {
+      id: `${id}-listen`,
+      title: "Does it sound right?",
+      body: "Brush your thumb slowly down across all six open strings and listen. The notes should ring together without a sour or wobbly sound. If one string sticks out, pick it alone, compare it with its reference tone and fix it.",
+      durationSec: 25,
+      action: "read",
+      visual: "tuner",
+    },
+    {
+      id: `${id}-summary`,
+      title: "Lesson recap",
+      body: "Your guitar is in standard tuning: E, A, D, G, B, E. Tune at the start of every practice session. Your ear gets better at hearing flat and sharp each time you do it.",
+      durationSec: 15,
+      action: "read",
+      visual: "summary",
+      checklist: [
+        "I can name the notes of standard tuning in order.",
+        "I can hear whether a string is flat or sharp against a reference tone.",
+        "I can tune all six strings, tuning up to each note.",
+      ],
+    },
+  ],
+};
