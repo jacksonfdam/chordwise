@@ -1,5 +1,5 @@
-import { Suspense } from "react";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Suspense, useEffect } from "react";
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { SettingsMenu } from "../Settings/SettingsMenu";
 import styles from "./Layout.module.css";
 
@@ -19,6 +19,13 @@ export function PageFallback() {
 }
 
 export function Layout() {
+  const { pathname } = useLocation();
+  // The chord drawer opens over the library, so those routes share one scroll position.
+  const section = pathname.startsWith("/chords") ? "/chords" : pathname;
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [section]);
+
   return (
     <div className={styles.shell}>
       <a className="skip-link" href="#main">
