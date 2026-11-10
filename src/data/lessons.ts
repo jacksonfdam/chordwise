@@ -43,7 +43,19 @@ export function nextLesson(id: string): Lesson | undefined {
   return index === -1 ? undefined : LESSONS[index + 1];
 }
 
-/** The first lesson that teaches a chord, used to link the library back to the lessons. */
+/**
+ * The lesson that teaches a chord, used to link the library back to the lessons.
+ * A lesson that walks through placing the fingers wins over one that merely shows the chord.
+ */
 export function lessonTeachingChord(chordId: string): Lesson | undefined {
-  return LESSONS.find((lesson) => lesson.chordIds.includes(chordId));
+  const usesChord = (lesson: Lesson) => lesson.chordIds.includes(chordId);
+  return (
+    LESSONS.find((lesson) =>
+      lesson.steps.some((step) => step.chordId === chordId && step.action === "place"),
+    ) ??
+    LESSONS.find((lesson) =>
+      lesson.steps.some((step) => step.chordId === chordId && step.autoplayChord === true),
+    ) ??
+    LESSONS.find(usesChord)
+  );
 }
