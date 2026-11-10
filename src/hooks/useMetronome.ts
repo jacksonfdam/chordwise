@@ -26,6 +26,9 @@ export interface MetronomeControls {
   toggle: () => void;
 }
 
+/** Only one metronome sounds at a time: starting one stops whichever was running. */
+let stopActiveMetronome: (() => void) | null = null;
+
 interface QueuedTick {
   position: TickPosition;
   time: number;
@@ -60,9 +63,17 @@ export function useMetronome(options: MetronomeOptions): MetronomeControls {
     }
     setIsRunning(false);
     setPosition(null);
+    if (stopActiveMetronome === stopRef.current) stopActiveMetronome = null;
   }, []);
 
+  const stopRef = useRef(stop);
+  useEffect(() => {
+    stopRef.current = stop;
+  }, [stop]);
+
   const start = useCallback(() => {
+    if (stopActiveMetronome && stopActiveMetronome !== stop) stopActiveMetronome();
+    stopActiveMetronome = stop;
     schedulerRef.current?.stop();
     queueRef.current = [];
 
@@ -101,7 +112,7 @@ export function useMetronome(options: MetronomeOptions): MetronomeControls {
       scheduler.start();
       if (frameRef.current === null) frameRef.current = requestAnimationFrame(follow);
     });
-  }, []);
+  }, [stop]);
 
   const toggle = useCallback(() => {
     if (schedulerRef.current) stop();
