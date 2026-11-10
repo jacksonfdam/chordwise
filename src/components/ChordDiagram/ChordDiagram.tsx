@@ -279,28 +279,31 @@ export function ChordDiagram({
           })}
       </svg>
 
-      <table className="sr-only">
-        <caption>{chord.fullName} fingering, from the thickest string to the thinnest</caption>
-        <thead>
-          <tr>
-            <th scope="col">String</th>
-            <th scope="col">Fret</th>
-            <th scope="col">Finger</th>
-          </tr>
-        </thead>
-        <tbody>
-          {STRING_INDEXES.map((string) => {
-            const fret = chord.frets[string];
-            return (
-              <tr key={string}>
-                <th scope="row">{STRING_NAMES[string]}</th>
-                <td>{fret === "x" ? "Muted" : fret === 0 ? "Open" : fret}</td>
-                <td>{isFretted(fret) ? chord.fingers[string] : "None"}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      {/* The wrapper does the hiding: overflow rules do not apply to a table element itself. */}
+      <div className="sr-only">
+        <table>
+          <caption>{chord.fullName} fingering, from the thickest string to the thinnest</caption>
+          <thead>
+            <tr>
+              <th scope="col">String</th>
+              <th scope="col">Fret</th>
+              <th scope="col">Finger</th>
+            </tr>
+          </thead>
+          <tbody>
+            {STRING_INDEXES.map((string) => {
+              const fret = chord.frets[string];
+              return (
+                <tr key={string}>
+                  <th scope="row">{STRING_NAMES[string]}</th>
+                  <td>{fret === "x" ? "Muted" : fret === 0 ? "Open" : fret}</td>
+                  <td>{isFretted(fret) ? chord.fingers[string] : "None"}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </figure>
   );
 }
