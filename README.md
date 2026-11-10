@@ -27,6 +27,10 @@ no tracking; your progress is stored on your own device.
   every chord in it. Tap a chord in the song to see and hear it, transpose, switch to flats,
   change the text size and autoscroll while you play. Shapes written in the sheet itself
   (`G 3-x-0-0-3-3`) are used as given.
+- **Tab player**: open a Guitar Pro file (`.gp`, `.gp3` to `.gp5`, `.gpx`) or MusicXML, or
+  pick a public-domain tune. The notation and tab play with a moving cursor while a fretboard
+  lights up with each note. Practice controls: speed, loop, a marked section, count-in, click,
+  and mute or solo per track. Chord names in a file can be sent to the song sheet.
 - **Hand illustrations**: pictures of the fretting hand for the main open chords and the F
   barre, the strumming hand for each kind of stroke (shown in step with the metronome), and
   hand-position pictures in the lessons.
@@ -98,7 +102,7 @@ src/
   components/            ChordDiagram, StepPlayer, Timer, Metronome, StrumPattern,
                          ChordChangeDrill, LessonCard, ProgressBar, GuitarParts,
                          Fretboard, Layout, Settings, Icon
-  pages/                 Home, LessonList, LessonPlayer, ChordLibrary, SongSheet, Tools,
+  pages/                 Home, LessonList, LessonPlayer, ChordLibrary, SongSheet, TabPlayer, Tools,
                          Glossary, NotFound
   styles/                tokens.css (design tokens), global.css, ui.module.css
   tests/                 Vitest suites
@@ -229,6 +233,13 @@ To regenerate the icons and the social preview image after editing the SVGs in `
 ./scripts/generate-assets.sh
 ```
 
+### Tab player files
+
+The tab player uses [alphaTab](https://alphatab.net). Its script, music font and sound bank
+(about 3 MB) are not part of the app bundle: `scripts/copy-alphatab.mjs` copies them from
+`node_modules` to `public/alphatab` after every `npm install`, and the browser downloads them
+only when the tab player is opened.
+
 ## Browser support
 
 Current versions of Chrome, Firefox, Safari and Edge, including iOS Safari and Android Chrome.
@@ -242,6 +253,8 @@ Sound starts after your first tap or key press, as browsers require.
 
 - Built with [React](https://react.dev), [Vite](https://vite.dev),
   [React Router](https://reactrouter.com) and [Vitest](https://vitest.dev).
+- The tab player is powered by [alphaTab](https://alphatab.net) (MPL-2.0), with the Bravura
+  music font (SIL Open Font License) and the SONiVOX sound bank.
 - The string sound uses the Karplus-Strong plucked-string algorithm (Kevin Karplus and
   Alex Strong, 1983).
 - Created by Jackson F. de A. Mafra.
