@@ -1,0 +1,116 @@
+import type { Lesson } from "../../domain/types";
+
+const id = "beginner-01-meet-your-guitar";
+
+export const lesson: Lesson = {
+  id,
+  order: 1,
+  level: "beginner",
+  title: "Meet your guitar",
+  summary: "Learn the parts of the guitar, the string names and how to hold it comfortably.",
+  estimatedMinutes: 6,
+  prerequisites: [],
+  chordIds: [],
+  goals: [
+    "Name the main parts of the guitar.",
+    "Name the six strings in order, from thickest to thinnest.",
+    "Hold the guitar in a relaxed playing position.",
+    "Name your fretting-hand fingers by number.",
+  ],
+  steps: [
+    {
+      id: `${id}-headstock`,
+      title: "Start at the top",
+      body: "Tap a label to explore. The headstock is the flat end of the guitar, far from your body. On it sit six tuning pegs: small knobs that tighten or loosen the strings. Where the headstock meets the neck is the nut, a thin grooved strip that keeps the strings in place.",
+      durationSec: 30,
+      action: "read",
+      visual: "guitar-parts",
+    },
+    {
+      id: `${id}-neck`,
+      title: "The neck and the frets",
+      body: "The neck is the long, thin part your hand wraps around. Thin metal strips cross it. The space between two strips is called a fret. Frets are numbered from the nut: fret 1 is the first space, fret 2 the next. The six strings run along the whole neck.",
+      durationSec: 30,
+      action: "read",
+      visual: "guitar-parts",
+    },
+    {
+      id: `${id}-body`,
+      title: "The body",
+      body: "The body is the big, curved part that rests against you. On an acoustic guitar it has a sound hole, a round opening that lets the sound out. Below it is the bridge, the piece that holds the other end of the strings. You pick the strings over the sound hole.",
+      durationSec: 30,
+      action: "read",
+      visual: "guitar-parts",
+    },
+    {
+      id: `${id}-string-names`,
+      title: "Name the six strings",
+      body: "Tap each string to hear it. From thickest to thinnest the strings are named E, A, D, G, B, E. A phrase helps you remember: Eddie Ate Dynamite, Good Bye Eddie. The thickest is called the low E string because it sounds lowest. The thinnest is the high E string.",
+      durationSec: 40,
+      action: "read",
+      visual: "string-names",
+    },
+    {
+      id: `${id}-hold`,
+      title: "Hold the guitar",
+      body: "Sit on a chair without armrests. Rest the curve of the body on your right thigh, with the neck pointing left. Let the back of the guitar lean lightly against your stomach. If you are left-handed and have a left-handed guitar, mirror everything: left thigh, neck pointing right.",
+      durationSec: 30,
+      action: "read",
+      checklist: [
+        "The guitar stays in place without my hands holding it.",
+        "The neck points slightly up, not down at the floor.",
+      ],
+    },
+    {
+      id: `${id}-posture`,
+      title: "Sit tall and relaxed",
+      body: "Posture is the way you hold your body. Keep both feet flat on the floor and your back straight. Drop your shoulders. Do not tilt the guitar back to look at the strings; lean your head forward a little instead. A relaxed body plays longer and sounds better.",
+      durationSec: 25,
+      action: "read",
+      checklist: [
+        "Both feet are flat on the floor.",
+        "My shoulders are down and loose.",
+        "The front of the guitar faces forward, not up at me.",
+      ],
+    },
+    {
+      id: `${id}-picking-hand`,
+      title: "Your picking hand",
+      body: "The picking hand makes the sound. It is the hand over the sound hole, the right hand for most players. Rest that forearm on the top edge of the body. Now brush your thumb slowly down across all six strings, from thickest to thinnest. That motion is called a strum.",
+      durationSec: 30,
+      action: "read",
+    },
+    {
+      id: `${id}-fretting-hand`,
+      title: "Your fretting hand",
+      body: "The fretting hand chooses the notes. It is the hand on the neck. Fretting means pressing a string down inside a fret. Rest your thumb on the back of the neck and curve your fingers over the strings. Press any string with a fingertip and pick it.",
+      durationSec: 30,
+      action: "read",
+      checklist: [
+        "My thumb rests on the back of the neck.",
+        "My fingers are curved, like holding a small ball.",
+      ],
+    },
+    {
+      id: `${id}-finger-numbers`,
+      title: "Finger numbers",
+      body: "Every lesson names your fretting-hand fingers by number. Finger 1 is your index finger. Finger 2 is your middle finger. Finger 3 is your ring finger. Finger 4 is your pinky. The thumb has no number. Wiggle each finger and say its number out loud.",
+      durationSec: 25,
+      action: "read",
+    },
+    {
+      id: `${id}-summary`,
+      title: "Lesson recap",
+      body: "You know the parts of the guitar, the string names and how to sit with it. Next you will learn to read chord diagrams, the pictures that show where your fingers go.",
+      durationSec: 15,
+      action: "read",
+      visual: "summary",
+      checklist: [
+        "I can point to the headstock, nut, neck, frets, body, sound hole and bridge.",
+        "I can name the strings from thickest to thinnest: E, A, D, G, B, E.",
+        "I can sit with the guitar with relaxed shoulders.",
+        "I can name fingers 1, 2, 3 and 4.",
+      ],
+    },
+  ],
+};
